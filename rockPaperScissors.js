@@ -1,16 +1,20 @@
 function playRound(playerSelection, computerSelection) {
   // your code here to determine whether playerSelection or computerSelection wins!
   if (playerSelection === computerSelection) {
-    console.log('Tie');
-  } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') { 
-       console.log(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
-   } else if (playerSelection === 'paper' && computerSelection === 'rock') { 
-        console.log(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
-  } else if (playerSelection === 'scissors' && computerSelection === 'paper') { 
-      console.log(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
-   } else {
-  console.log(`You chose ${playerSelection}. They chose ${computerSelection}. You loose.`);
-   }
+    prompt('Tie');
+  } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') {   
+    prompt(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
+    playerScore++;
+} else if (playerSelection === 'paper' && computerSelection === 'rock') { 
+    prompt(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
+    playerScore++;
+} else if (playerSelection === 'scissors' && computerSelection === 'paper') { 
+    prompt(`You chose ${playerSelection}. They chose ${computerSelection}. You win.`);
+    playerScore++;
+} else {
+    prompt(`You chose ${playerSelection}. They chose ${computerSelection}. You loose.`);
+    computerScore++;
+}
 }
 
 function getComputerChoice() {
@@ -22,8 +26,11 @@ function getComputerChoice() {
   case 2:
       return 'scissors'
   }
-} 
+}
 
-let playerSelection = prompt('Rock, Paper, Scissors. Pick one:');
+let playerSelection = prompt('Rock, Paper, Scissors. Pick one:')
+
+let computerScore = 0
+let playerScore = 0
+
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
